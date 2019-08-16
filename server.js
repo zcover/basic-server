@@ -27,7 +27,7 @@ app.get('/data', (request, response) => {
 
 
 app.use('*', (request, response) => {
-  response.send(`Sorry, that route does not exist!!`)
+  response.send(`Error 404: Monkies ate our software dev`)
 });
 
 
