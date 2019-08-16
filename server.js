@@ -24,9 +24,7 @@ app.get('/data', (request, response) => {
   response.status(200).json(airplanes);
 });
 
-app.get('/', (request, response) => {
-  response.status(200).redirect('public/index.html')
-});
+
 
 app.use('*', (request, response) => {
   response.send(`Sorry, that route does not exist!!`)
