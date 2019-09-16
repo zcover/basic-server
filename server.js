@@ -1,37 +1,18 @@
-'use strict';
+'use strict'
 
-const express = require('express');
+//express is the library that lets us setup a server
+const express= require('express');
+//dotenv is the library that lets us talk to our .env file
 require('dotenv').config();
-const app = express();
 
-app.use(express.static('./public'));
+//this initializes our express server
+const app = express()
 
-app.get('/hello', (request, response) => {
-  response.status(200).send('Hello');
-});
-
-app.get('/data', (request, response) => {
-  let airplanes = {
-    departure: Date.now(),
-    canFly: true,
-    pilot: 'Well trained'
-  }
-  response.status(200).json(airplanes);
-})
-
-app.get('/', (request, response) => {
-  response.status(200).redirect('index.html');
-})
-
-//catch all function
-app.use('*', (request, response) => {
-  response.send('Sorry, that route does not exist');
-})
+//this is where we define our PORT variable from our .env, or runs a hard-coded 3000;
+const PORT = process.env.PORT || 3000;
 
 
 
-//bottom of file
-const PORT = process.env.PORT || (3000);
 
-
-app.listen(PORT, () => console.log(`listening on ${PORT}`));
+//this starts our express server
+app.listen(PORT, () => console.log(`listening on port ${PORT}`))
